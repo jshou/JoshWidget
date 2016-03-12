@@ -1,17 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.joshuahou.joshwidget2">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/artjosh"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <receiver android:name=".JoshWidgetProvider">
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/joshwidget_info" />
+        </receiver>
     </application>
 
-    <receiver android:name="JoshWidgetProvider" >
-        <meta-data android:name="android.appwidget.provider"
-            android:resource="@xml/joshwidget_info" />
-    </receiver>
 </manifest>
